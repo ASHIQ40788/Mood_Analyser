@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MoodAnalyser058Batch
 {
     /// <summary>
-    ///UC-1 Analzing user mood based on happy or sad word.
+    ///UC-2 Null exception returning happy mood.
     /// </summary>
     public class MoodAnalyser
     {
