@@ -1,0 +1,17 @@
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\bin\Debug\MsTestForMoodAnaluse.dll
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\bin\Debug\MsTestForMoodAnaluse.pdb
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\bin\Debug\MoodAnalyser.exe
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\bin\Debug\MoodAnalyser.pdb
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\bin\Debug\MoodAnalyser.exe.config
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\obj\Debug\MsTestForMoodAnalyse.csproj.AssemblyReference.cache
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\obj\Debug\MsTestForMoodAnalyse.csproj.CoreCompileInputs.cache
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\obj\Debug\MsTestForMoodAnalyse.csproj.CopyComplete
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\obj\Debug\MsTestForMoodAnaluse.dll
+C:\Users\Personal\source\repos\MoodAnalyser\MsTestForMoodAnaluse\obj\Debug\MsTestForMoodAnaluse.pdb
