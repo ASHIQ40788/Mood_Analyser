@@ -6,7 +6,7 @@ namespace MsTestForMoodAnalyse
 {
 
     /// <summary>
-    /// UC-1 Analzing user mood based on happy or sad word.
+    /// UC-2 Analyzing Null Exception Returning Happy Mood.
     /// </summary>
     [TestClass]
     public class MsTestForMoodAnalyser
