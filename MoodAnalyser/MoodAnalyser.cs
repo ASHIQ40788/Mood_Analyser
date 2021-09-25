@@ -24,8 +24,6 @@ namespace MoodAnalyser058Batch
         {
             try
             {
-
-
                 if (message.ToLower().Contains("happy"))
                 {
                     return "happy";
