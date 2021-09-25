@@ -45,23 +45,6 @@ namespace MsTestForMoodAnalyse
             //Assert
             Assert.AreEqual(expected, actual);
         }
-
-        [TestMethod]
-        [TestCategory("NegativeScenario")]
-        public void GivenMessageShouldReturnElseCondition()
-        {
-            ///AAA methodology
-
-            ///Arrange
-            string expected = "there is no happy or sad exist in the given message";
-            MoodAnalyser moodAnalyser = new MoodAnalyser("I AM IN MOOD ");
-
-            //Act
-            string actual = moodAnalyser.AnalyseMood();
-
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
     }
 }
 
