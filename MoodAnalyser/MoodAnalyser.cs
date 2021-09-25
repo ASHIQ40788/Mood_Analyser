@@ -7,39 +7,51 @@ using System.Threading.Tasks;
 namespace MoodAnalyser058Batch
 {
     /// <summary>
-    ///UC-1 Analzing user mood based on happy or sad word.
+    /// Analzing user mood based on happy or sad word.
     /// </summary>
     public class MoodAnalyser
     {
-       //Iam in Happy mood
+        //Iam in Happy mood
         public string message;
         public MoodAnalyser(string message)
         {
-            
+
             this.message = message;
         }
-        
+
         //create Analyse method for analyser mood of the user
         public string AnalyseMood()
         {
             try
             {
 
-
-                if (message.ToLower().Contains("happy"))
+                if (message.Equals(string.Empty))
+                {
+                    throw new CustomMoodAnalyserException(CustomMoodAnalyserException.ExceptionType.EMPTY_TYPE_EXCEPTION, "message should not be empty");
+                }
+                else if (message.ToLower().Contains("happy"))
                 {
                     return "happy";
                 }
-                else
+                else if (message.ToLower().Contains("sad"))
                 {
                     return "sad";
+                }
+                else
+                {
+                    return "there is no happy or sad exist in the given message";
                 }
             }
             catch (NullReferenceException ex)
             {
-                return "happy";
-                
+                //return "happy";
+                throw new CustomMoodAnalyserException(CustomMoodAnalyserException.ExceptionType.NULL_TYPE_EXCEPTION, "message should not be null");
             }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+
         }
     }
 }

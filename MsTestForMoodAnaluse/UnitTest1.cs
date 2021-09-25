@@ -4,33 +4,54 @@ using MoodAnalyser058Batch;
 
 namespace MsTestForMoodAnalyse
 {
-
-    /// <summary>
-    /// UC-1 Analzing user mood based on happy or sad word.
-    /// </summary>
     [TestClass]
     public class MsTestForMoodAnalyser
     {
         [TestMethod]
-        [TestCategory("NegativeScenario")]
-        public void GivenNullShouldReturnHappy()
-
+        [TestCategory("CustomException")]
+        public void GivenNullShouldThrowCustomNullException()
         {
-            //AAA Methology
+            ///AAA methodology
 
-            //Arrange
-            string excepted = "happy";
-            MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+            ///Arrange
+            string expected = "message show not be null";
+            MoodAnalyser moodAnalyser = new MoodAnalyser("null");
 
-            //ACT
-            string actual = moodAnalyser.AnalyseMood();
-
-            //ASSERT
-            Assert.AreEqual(excepted, actual);
+            try
+            {
+                //Act
+                string actual = moodAnalyser.AnalyseMood();
+            }
+            catch (CustomMoodAnalyserException ex)
+            {
+                //Assert
+                Assert.AreEqual(expected, ex.Message);
+            }
         }
-    
+
+        [TestMethod]
+        [TestCategory("CustomException")]
+        public void GivenEmptyShouldThrowCustomEmptyException()
+        {
+            ///AAA methodology
+
+            ///Arrange
+            string expected = "message show not be empty";
+            MoodAnalyser moodAnalyser = new MoodAnalyser(string.Empty);
+
+            try
+            {
+                //Act
+                string actual = moodAnalyser.AnalyseMood();
+            }
+            catch (CustomMoodAnalyserException ex)
+            {
+                //Assert
+                Assert.AreEqual(expected, ex.Message);
+            }
+
+        }
+
     }
 }
 
-
-        
