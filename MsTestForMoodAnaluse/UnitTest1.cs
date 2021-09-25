@@ -12,56 +12,23 @@ namespace MsTestForMoodAnalyse
     public class MsTestForMoodAnalyser
     {
         [TestMethod]
-        [TestCategory("HappyGroup")]
-        public void GivenHapppyShouldReturnHappy()
-        {
-            ///AAA methodology
-
-            ///Arrange
-            string expected = "happy";
-            MoodAnalyser moodAnalyser = new MoodAnalyser("I AM IN HAPPY MOOD ");
-
-            //Act
-            string actual = moodAnalyser.AnalyseMood();
-
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
-
-
-        [TestMethod]
-        [TestCategory("Sad Group")]
-        public void GivenSadShouldReturnSad()
-        {
-            ///AAA methodology
-
-            ///Arrange
-            string expected = "sad";
-            MoodAnalyser moodAnalyser = new MoodAnalyser("I AM IN sad MOOD ");
-
-            //Act
-            string actual = moodAnalyser.AnalyseMood();
-
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
         [TestCategory("NegativeScenario")]
-        public void GivenMessageShouldReturnElseCondition()
+        public void GivenNullShouldReturnHappy()
+
         {
-            ///AAA methodology
+            //AAA Methology
 
-            ///Arrange
-            string expected = "there is no happy or sad exist in the given message";
-            MoodAnalyser moodAnalyser = new MoodAnalyser("I AM IN MOOD ");
+            //Arrange
+            string excepted = "happy";
+            MoodAnalyser moodAnalyser = new MoodAnalyser(null);
 
-            //Act
+            //ACT
             string actual = moodAnalyser.AnalyseMood();
 
-            //Assert
-            Assert.AreEqual(expected, actual);
+            //ASSERT
+            Assert.AreEqual(excepted, actual);
         }
+    
     }
 }
 

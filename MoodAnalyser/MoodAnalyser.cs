@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MoodAnalyser058Batch
 {
     /// <summary>
-    /// Analzing user mood based on happy or sad word.
+    ///UC-1 Analzing user mood based on happy or sad word.
     /// </summary>
     public class MoodAnalyser
     {
@@ -22,7 +22,10 @@ namespace MoodAnalyser058Batch
         //create Analyse method for analyser mood of the user
         public string AnalyseMood()
         {
-              
+            try
+            {
+
+
                 if (message.ToLower().Contains("happy"))
                 {
                     return "happy";
@@ -31,7 +34,12 @@ namespace MoodAnalyser058Batch
                 {
                     return "sad";
                 }
-               
+            }
+            catch (NullReferenceException ex)
+            {
+                return "happy";
+                
+            }
         }
     }
 }
