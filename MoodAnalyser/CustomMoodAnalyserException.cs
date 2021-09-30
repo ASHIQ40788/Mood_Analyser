@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace MoodAnalyser058Batch
 {
-    
     public class CustomMoodAnalyserException : Exception
     {
         public ExceptionType type;

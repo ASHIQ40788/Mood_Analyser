@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoodAnalyser058Batch;
 
+
 namespace MsTestForMoodAnalyse
 {
-    
+
     [TestClass]
     public class MsTestForMoodAnalyser
     {
@@ -132,35 +134,141 @@ namespace MsTestForMoodAnalyse
 
         }
 
-
         /// <summary>
-        /// TC4- Create default constructor using reflection
+        /// UC-4 Create Default Constructor Using Reflection
         /// </summary>
-
         [TestMethod]
         [TestCategory("Reflection")]
         public void Given_MoodAnalyser_Using_Reflection_Return_defaultConstructor()
         {
-            MoodAnalyser expected = new MoodAnalyser();
+            MoodAnalyser excepted = new MoodAnalyser();
             object obj = null;
             try
             {
-                MoodAnalyserFactory factory = new MoodAnalyserFactory();
                 //Act
-                obj = factory.CreateMoodAnalyserObject("MoodAnalyserForTvsBatch.MoodAnalyser", "MoodAnalyser");
-
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                obj = factory.CreateMoodAnalyserObject("ReflectionDemo.MoodAnalyser", "MoodAnalyser");
             }
-            catch (CustomMoodAnalyserException exception)
+            catch (CustomMoodAnalyserException execption)
             {
                 //Assert
-                throw new Exception(exception.Message);
-
+                throw new Exception(execption.Message);
             }
-            obj.Equals(expected);
+            obj.Equals(excepted);
+
+        }
+        [TestMethod]
+        [TestCategory("Reflection")]
+        public void Given_MoodAnalyser_Using_Reflection_Return_Exception()
+        {
+            string excepted = "constructor not found";
+            object obj = null;
+            try
+            {
+                //ACT
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                obj = factory.CreateMoodAnalyserObject("Exception058.MoodAnalyser", "MoodAnal");
+            }
+            catch (CustomMoodAnalyserException execption)
+            {
+                //ASSERT
+                Assert.AreEqual(excepted, execption.Message);
+            }
+
+        }
+        [TestMethod]
+        [TestCategory("Reflection")]
+        public void Given_MoodAnalyser_Using_Reflection_Return_ClassException()
+        {
+            string excepted = "class not found";
+            object obj = null;
+            try
+            {
+                //ACT
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                obj = factory.CreateMoodAnalyserObject("Exception058.EmployeeWage", "EmployeeWage");
+            }
+            catch (CustomMoodAnalyserException execption)
+            {
+                //ASSERT
+                Assert.AreEqual(excepted, execption.Message);
+            }
+
         }
 
-       
+        /// <summary>
+        ///  UC-5 -mood analyzer using reflection return parameterised constructor.
+        /// </summary>
+        /// <exception cref="System.Exception"></exception>
+        [TestMethod]
+        [TestCategory("Reflection")]
+        public void Given_MoodAnalyser_Using_Reflection_Return_ParameterisedConstructor()
+        {
+            string message = "i am in a happy mood";
+            MoodAnalyser excepted = new MoodAnalyser(message);
+            object actual = null;
+            try
+            {
+                //ACT
+                MoodAnalyserFactory058 factory = new MoodAnalyserFactory058();
+                actual = factory.CreateMoodAnalyserParameterisedObject("MoodAnalyser", "MoodAnalyser", message);
+            }
+            catch (CustomMoodAnalyserException execption)
+            {
+                //ASSERT
+                throw new Exception(execption.Message);
+            }
+
+
+        }
+        [TestMethod]
+        [TestCategory("Reflection")]
+        public void Given_MoodAnalyzer_Using_Reflection_Return_classException_ParametarisedConstructor()
+        {
+            string excepted = "class not found";
+            string message = "i am in a happy mood";
+            object actual = null;
+            try
+            {
+                //ACT
+                MoodAnalyserFactory058 factory = new MoodAnalyserFactory058();
+                actual = factory.CreateMoodAnalyserParameterisedObject("EmpWage", "EmpWage", message);
+            }
+            catch (CustomMoodAnalyserException execption)
+            {
+                //ASSERT
+                Assert.AreEqual(excepted, execption.Message);
+            }
+
+
+        }
+        [TestMethod]
+        [TestCategory("Reflection")]
+        public void Given_MoodAnalyser_Using_Reflection_Return_Constructor_Exception_ParameterisedConstructor()
+        {
+            string excepted = "constructor not found";
+            string message = "I am in a happy mood";
+            object actual = null;
+            try
+            {
+                //ACT
+                MoodAnalyserFactory058 factory = new MoodAnalyserFactory058();
+                actual = factory.CreateMoodAnalyserParameterisedObject("MoodAnalyser", "Empwage", message);
+            }
+            catch (CustomMoodAnalyserException execption)
+            {
+                //ASSERT
+                Assert.AreEqual(excepted, execption.Message);
+            }
+
+
+
+        }
 
     }
 
+
+
 }
+
+

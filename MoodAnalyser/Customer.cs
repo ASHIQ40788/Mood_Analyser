@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace MoodAnalyser058Batch
 {
-    
     /// <summary>
     /// Creating customer class
     /// </summary>

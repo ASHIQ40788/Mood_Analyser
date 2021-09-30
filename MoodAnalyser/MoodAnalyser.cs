@@ -59,5 +59,4 @@ namespace MoodAnalyser058Batch
 
         }
     }
-
 }
