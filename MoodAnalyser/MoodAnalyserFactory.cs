@@ -21,7 +21,7 @@ namespace MoodAnalyser058Batch
         /// class not found
         /// constructor not found
         /// </exception>
-        public Object CreateMoodAnalyserObject(string className, string constructor)
+            public Object CreateMoodAnalyserObject(string className, string constructor)
             {
                 //MoodAnalyserBatch058Batch.MoodAnalyse
                 string pattern = "." + constructor + "$";
@@ -54,7 +54,7 @@ namespace MoodAnalyser058Batch
             /// <param name="constructor"></param>
             /// <param name="message"></param>
             /// <returns></returns>
-            public object CreateMoodAnalyserParameterisedObject(string className, string constructor, string message)
+        public object CreateMoodAnalyserParameterisedObject(string className, string constructor, string message)
         {
             try
             {
@@ -81,10 +81,11 @@ namespace MoodAnalyser058Batch
             {
                 throw new Exception(ex.Message);
             }
+        
         }
 
-       
-    }
+   }
+
 }
 
 
