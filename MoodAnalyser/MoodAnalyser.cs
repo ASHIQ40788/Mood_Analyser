@@ -7,12 +7,17 @@ using System.Threading.Tasks;
 namespace MoodAnalyser058Batch
 {
     /// <summary>
-    /// Analzing user mood based on happy or sad word.
+    /// Analyzing user mood based on happy or sad word.
     /// </summary>
-    public class MoodAnalyser
+   public class MoodAnalyser
     {
         //Iam in Happy mood
         public string message;
+        public MoodAnalyser()
+        {
+            Console.WriteLine("Default constructor");
+        }
+
         public MoodAnalyser(string message)
         {
 
@@ -54,4 +59,5 @@ namespace MoodAnalyser058Batch
 
         }
     }
+
 }
