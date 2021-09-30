@@ -107,9 +107,51 @@ namespace MoodAnalyser058Batch
                 throw new CustomMoodAnalyserException(CustomMoodAnalyserException.ExceptionType.NO_SUCH_METHOD, "method not found");
             }
         }
+        /// <summary>
+        /// UC7-Sets the field
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="fieldName"></param>
+        /// <returns></returns>
+        /// <exception cref ="MoodAnalyser058Batch.CustomMoodAnalyserException")
+        /// Message should not be null
+        /// or
+        /// FieldName should not be null
+        /// </exception>
+        /// <exception cref="System.Exception"></exception>
+        public string SetField(string msg, string fieldName)
+        {
+            try
+            {
+                MoodAnalyserFactory fac = new MoodAnalyserFactory();
+                MoodAnalyser obj = (MoodAnalyser)fac.CreateMoodAnalyserObject("MoodAnalyser058Batch.MoodAnalyser", "MoodAnalyser");
+                Type type = typeof(MoodAnalyser);
+                FieldInfo field = type.GetField(fieldName, BindingFlags.Public | BindingFlags.Instance);
+                if (field != null)
+                {
+                    if (msg == null)
+                    {
+                        throw new CustomMoodAnalyserException(CustomMoodAnalyserException.ExceptionType.NUll_MESSAGE, "Message should not be null");
+                    }
+                    field.SetValue(obj, msg);
+                    return obj.message;
+                }
+                throw new CustomMoodAnalyserException(CustomMoodAnalyserException.ExceptionType.FIELD_NULL, "FieldName should not be null");
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
 
     }
 }
+
+    
+
 
 
 

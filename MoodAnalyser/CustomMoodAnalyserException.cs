@@ -15,7 +15,9 @@ namespace MoodAnalyser058Batch
             EMPTY_TYPE_EXCEPTION,
             CLASS_NOT_FOUND,
             CONSTRUCTOR_NOT_FOUND,
-           
+            NO_SUCH_METHOD,
+            NUll_MESSAGE,
+            FIELD_NULL
 
         }
         public CustomMoodAnalyserException(ExceptionType type, string message) : base(message)

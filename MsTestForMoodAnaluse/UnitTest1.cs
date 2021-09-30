@@ -292,9 +292,32 @@ namespace MsTestForMoodAnalyse
 
 
         }
+        /// <summary>
+        /// UC7-Reflection to change mood dynamically using Set_Field
+        /// </summary>
+        [TestMethod]
+        [TestCategory("Reflection")]
+        public void Given_MoodAnalyser_Using_Reflection_Set_Field()
+        {
+            String msg = "I am in sad mood";
+            string methodName = "AnalyseMood";
+            string expected = "sad";
+            string actual = "";
+            try
+            {
+                //MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                //Act
+                actual = factory.SetField(msg, methodName);
+            }
+            catch (CustomMoodAnalyserException exception)
+            {
+                //Assert
+                throw new Exception(exception.Message);
+            }
+            Assert.AreEqual(expected, actual);
+        }
+
     }
-
-
 
 }
 

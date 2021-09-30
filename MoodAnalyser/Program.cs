@@ -18,24 +18,6 @@ namespace MoodAnalyser058Batch
             TestCustomerDetailsUsingReflection();
        
         }
-        public static void TestAuthorModel(Author author)
-        {
-            ValidationContext context = new ValidationContext(author, null, null);
-            List<ValidationResult> validationResults = new List<ValidationResult>();
-            bool valid = Validator.TryValidateObject(author, context, validationResults, true);
-            if (!valid)
-            {
-                foreach (ValidationResult validationResult in validationResults)
-                {
-                    Console.WriteLine("{0}", validationResult.ErrorMessage);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Satisfied all the validations");
-            }
-        }
-
         public static void TestCustomerDetailsUsingReflection()
         {
             Assembly asem=Assembly.LoadFrom(@"C:\Users\Personal\source\repos\EWP\EWP\EWP\bin\Debug\EWP.exe");
