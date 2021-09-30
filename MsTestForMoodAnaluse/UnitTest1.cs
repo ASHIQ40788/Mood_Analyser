@@ -265,6 +265,33 @@ namespace MsTestForMoodAnalyse
 
         }
 
+
+        /// <summary>
+        /// TC6-Reflection to invoke Method.
+        /// </summary>
+        [TestMethod]
+        [TestCategory("Reflection")]
+        public void Given_MoodAnalyser_Using_Reflection_Return_Method()
+        {
+            String message = "I am in sad mood";
+            string methodName = "AnalyseMood";
+            string expected = "sad";
+            string actual = "";
+            try
+            {
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                //Act
+                actual = factory.InvokeAnalyserMethod(message, methodName);
+            }
+            catch (CustomMoodAnalyserException exception)
+            {
+                //Assert
+                throw new Exception(exception.Message);
+            }
+            Assert.AreEqual(expected, actual);
+
+
+        }
     }
 
 

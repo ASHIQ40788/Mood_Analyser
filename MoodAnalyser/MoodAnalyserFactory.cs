@@ -22,7 +22,7 @@ namespace MoodAnalyser058Batch
         /// constructor not found
         /// </exception>
         public Object CreateMoodAnalyserObject(string className, string constructor)
-            {
+        {
                 //MoodAnalyserBatch058Batch.MoodAnalyse
                 string pattern = "." + constructor + "$";
                 Match result = Regex.Match(className, pattern);
@@ -46,15 +46,16 @@ namespace MoodAnalyser058Batch
                 {
                     throw new CustomMoodAnalyserException(CustomMoodAnalyserException.ExceptionType.CONSTRUCTOR_NOT_FOUND, "constructor not found");
                 }
-            }
-            /// <summary>
-            /// UC5- Creating parameterised constructor.
-            /// </summary>
-            /// <param name="className"></param>
-            /// <param name="constructor"></param>
-            /// <param name="message"></param>
-            /// <returns></returns>
-            public object CreateMoodAnalyserParameterisedObject(string className, string constructor, string message)
+        }
+
+        /// <summary>
+        /// UC5- Creating parameterised constructor.
+        /// </summary>
+        /// <param name="className"></param>
+        /// <param name="constructor"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public object CreateMoodAnalyserParameterisedObject(string className, string constructor, string message)
         {
             try
             {
@@ -83,7 +84,30 @@ namespace MoodAnalyser058Batch
             }
         }
 
-       
+        /// <summary>
+        /// UC6-Reflection to invoke Method.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="methodName"></param>
+        /// <returns></returns>
+        public string InvokeAnalyserMethod(string message, string methodName)
+        {
+            try
+            {
+                Type type = typeof(MoodAnalyser);
+                MethodInfo methodInfo = type.GetMethod(methodName);
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                object moodAnalyserObject = factory.CreateMoodAnalyserParameterisedObject("MoodAnalyserFor058Batch.MoodAnalyser", "MoodAnalyser", message);
+                object info = methodInfo.Invoke(moodAnalyserObject, null);
+                return info.ToString();
+
+            }
+            catch (NullReferenceException)
+            {
+                throw new CustomMoodAnalyserException(CustomMoodAnalyserException.ExceptionType.NO_SUCH_METHOD, "method not found");
+            }
+        }
+
     }
 }
 
