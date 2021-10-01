@@ -33,14 +33,11 @@ namespace MoodAnalyser058Batch
                 {
                     return "happy";
                 }
-                else if (message.ToLower().Contains("sad"))
+                else  (message.ToLower().Contains("sad"))
                 {
                     return "sad";
                 }
-                else
-                {
-                    return "there is no happy or sad exist in the given message";
-                }
+               
             }
             catch (NullReferenceException ex)
             {
