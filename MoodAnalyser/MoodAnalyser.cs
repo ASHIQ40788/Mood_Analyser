@@ -24,20 +24,27 @@ namespace MoodAnalyser058Batch
         {
             try
             {
-                if (message.ToLower().Contains("happy"))
-                {
-                    return "happy";
-                }
-                else
+                if (message.ToLower().Contains("sad"))
                 {
                     return "sad";
                 }
+                else  
+                {
+                    return "happy";
+                }
+                
             }
             catch (NullReferenceException ex)
             {
+                //UC2
                 return "happy";
                 
             }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+
         }
     }
 }
