@@ -158,7 +158,7 @@ namespace MsTestForMoodAnalyse
         }
 
         //For negative scenario
-        //if we give class or constructor name wrong it will give you a custom exception message
+        //if we give class/constructor name wrong, then it will give you a custom exception message
         [TestMethod]
         [TestCategory("Reflection")]
         public void Given_MoodAnalyser_Using_Reflection_Return_Exception()
