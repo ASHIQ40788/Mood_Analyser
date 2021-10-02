@@ -260,10 +260,7 @@ namespace MsTestForMoodAnalyse
                 //ASSERT
                 Assert.AreEqual(excepted, execption.Message);
             }
-
-
-
-        }
+       }
 
 
         /// <summary>
@@ -292,10 +289,31 @@ namespace MsTestForMoodAnalyse
 
 
         }
+
+        /// TC6
+        /// </summary>
+        [TestMethod]
+        [TestCategory("Reflection")]
+        public void GivenInvalidmethodReturnhappy()
+        {
+            String message = "I am in sad mood";
+            string methodName = "AnalyseMood";
+            string expected = "happy";
+            string actual = "";
+            try
+            {
+                //ACT
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                actual = factory.InvokeAnalyserMethod(message, methodName);
+            }
+            catch (CustomMoodAnalyserException ex)
+            {
+                //ASSERT
+                Assert.AreEqual(expected, ex.Message);
+            }
+        }
+
     }
-
-
-
 }
 
 
