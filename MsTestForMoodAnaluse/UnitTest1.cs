@@ -134,9 +134,8 @@ namespace MsTestForMoodAnalyse
 
 
         /// <summary>
-        /// TC4- Create default constructor using reflection
+        /// UC-4 Create Default Constructor Using Reflection
         /// </summary>
-
         [TestMethod]
         [TestCategory("Reflection")]
         public void Given_MoodAnalyser_Using_Reflection_Return_defaultConstructor()
@@ -145,20 +144,40 @@ namespace MsTestForMoodAnalyse
             object obj = null;
             try
             {
-                MoodAnalyserFactory factory = new MoodAnalyserFactory();
                 //Act
-                obj = factory.CreateMoodAnalyserObject("MoodAnalyserForTvsBatch.MoodAnalyser", "MoodAnalyser");
-
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                obj = factory.CreateMoodAnalyserObject("MoodAnalyser058Batch.MoodAnalyser", "MoodAnalyser");
             }
             catch (CustomMoodAnalyserException exception)
             {
                 //Assert
                 throw new Exception(exception.Message);
-
             }
             obj.Equals(expected);
+
         }
 
+        //For negative scenario
+        //if we give class or constructor name wrong it will give you a custom exception message
+        [TestMethod]
+        [TestCategory("Reflection")]
+        public void Given_MoodAnalyser_Using_Reflection_Return_Exception()
+        {
+            string expected = "constructor not found";
+            object obj = null;
+            try
+            {
+                //ACT
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                obj = factory.CreateMoodAnalyserObject("MoodAnalyser058Batch.MoodAnalyser", "MoodAnaly");
+            }
+            catch (CustomMoodAnalyserException exception)
+            {
+                //ASSERT
+                Assert.AreEqual(expected, exception.Message);
+            }
+
+        }
        
 
     }
