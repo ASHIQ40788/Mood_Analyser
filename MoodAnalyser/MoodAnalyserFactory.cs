@@ -17,7 +17,7 @@ namespace MoodAnalyser058Batch
     public class MoodAnalyserFactory
     {
         /// <summary>
-        /// Creates the mood analyser object.
+        /// UC4-is to create object by using reflector and use default constructor
         /// </summary>
         /// <param name="className">Name of the class</param>
         /// <param name="constructor">The constructor.</param>
@@ -26,33 +26,39 @@ namespace MoodAnalyser058Batch
         /// class not found
         /// constructor not found
         /// </exception>
+        
+        //Created an method which is written in object.
+        //My object is to create an object of mood analyser class with he help of reflection.
         public Object CreateMoodAnalyserObject(string className, string constructor)
         {
-            //MoodAnalyserBatch058Batch.MoodAnalyse
-            string pattern = "." + constructor + "$";
-            Match result = Regex.Match(className, pattern);
+                //MoodAnalyserBatch058Batch.MoodAnalyser.
+                string pattern = "." + constructor + "$";
+               //if it matches the  we have to extract information from assembly.
+                Match result = Regex.Match(className, pattern);
 
-            if (result.Success)
-            {
-                try
+                if (result.Success)
                 {
-                    Assembly assembly = Assembly.GetExecutingAssembly();
-                    Type moodAnalyserType = assembly.GetType(className);
+                    try
+                    {
+                    //extract from here if it matches.
+                        Assembly assembly = Assembly.GetExecutingAssembly();
+                    //checking what type of class is there.
+                        Type moodAnalyserType = assembly.GetType(className);
+                    // Activator. CreateInstance method creates an instance of a specified type using the constructor.
                     var res = Activator.CreateInstance(moodAnalyserType);
-                    return res;
-                }
+                        return res;
+                    }
 
-                catch (Exception ex)
-                {
-                    throw new CustomMoodAnalyserException(CustomMoodAnalyserException.ExceptionType.CLASS_NOT_FOUND, "class not found");
+                    catch (Exception ex)
+                    {
+                        throw new CustomMoodAnalyserException(CustomMoodAnalyserException.ExceptionType.CLASS_NOT_FOUND, "class not found");
+                    }
                 }
-            }
-            else
-            {
-                throw new CustomMoodAnalyserException(CustomMoodAnalyserException.ExceptionType.CONSTRUCTOR_NOT_FOUND, "constructor not found");
-            }
-        }
-        
+                else
+                {
+                    throw new CustomMoodAnalyserException(CustomMoodAnalyserException.ExceptionType.CONSTRUCTOR_NOT_FOUND, "constructor not found");
+                }
+         }
     }
 }
 
