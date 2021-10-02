@@ -196,7 +196,7 @@ namespace MsTestForMoodAnalyse
 
         }
 
-        /// <summary>
+         /// <summary>
         ///  UC-5 -mood analyzer using reflection return parameterised constructor.
         /// </summary>
         /// <exception cref="System.Exception"></exception>
@@ -205,13 +205,13 @@ namespace MsTestForMoodAnalyse
         public void Given_MoodAnalyser_Using_Reflection_Return_ParameterisedConstructor()
         {
             string message = "i am in a happy mood";
-            MoodAnalyser excepted = new MoodAnalyser(message);
-            object actual = null;
+            MoodAnalyser excepted = new MoodAnalyser();
+            object obj = null;
             try
             {
                 //ACT
-                MoodAnalyserFactory058 factory = new MoodAnalyserFactory058();
-                actual = factory.CreateMoodAnalyserParameterisedObject("MoodAnalyser", "MoodAnalyser", message);
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                obj = factory.CreateMoodAnalyserParameterisedObject("MoodAnalyser", "MoodAnalyser", message);
             }
             catch (CustomMoodAnalyserException execption)
             {
@@ -221,53 +221,60 @@ namespace MsTestForMoodAnalyse
 
 
         }
+        //Negative scenario -TC5
         [TestMethod]
         [TestCategory("Reflection")]
-        public void Given_MoodAnalyzer_Using_Reflection_Return_classException_ParametarisedConstructor()
+        public void Given_MoodAnalyzer_Using_Reflection_Return_Constructor_Parametarised_Exception()
         {
-            string excepted = "class not found";
+            string expected = "constructor not found";
             string message = "i am in a happy mood";
-            object actual = null;
+            object obj = null;
             try
             {
                 //ACT
-                MoodAnalyserFactory058 factory = new MoodAnalyserFactory058();
-                actual = factory.CreateMoodAnalyserParameterisedObject("EmpWage", "EmpWage", message);
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                obj = factory.CreateMoodAnalyserParameterisedObject("MoodAnalyser", "MoodAnal", message);
             }
-            catch (CustomMoodAnalyserException execption)
+            catch (CustomMoodAnalyserException exception)
             {
                 //ASSERT
-                Assert.AreEqual(excepted, execption.Message);
+                Assert.AreEqual(expected, exception.Message);
+            }
+            catch (Exception ex)
+            {
+                //ASSERT
+                Assert.AreEqual(expected, ex.Message);
             }
 
-
         }
+
+        //TC5- Negative scenario.
         [TestMethod]
         [TestCategory("Reflection")]
-        public void Given_MoodAnalyser_Using_Reflection_Return_Constructor_Exception_ParameterisedConstructor()
+        public void Given_MoodAnalyser_Using_Reflection_Return_Class_Parameterised_Exception()
         {
-            string excepted = "constructor not found";
+            string expected = "class not found";
             string message = "I am in a happy mood";
-            object actual = null;
+            object obj = null;
             try
             {
                 //ACT
-                MoodAnalyserFactory058 factory = new MoodAnalyserFactory058();
-                actual = factory.CreateMoodAnalyserParameterisedObject("MoodAnalyser", "Empwage", message);
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                obj = factory.CreateMoodAnalyserParameterisedObject("Employeewage", "Empwage", message);
             }
-            catch (CustomMoodAnalyserException execption)
+            catch (CustomMoodAnalyserException exception)
             {
                 //ASSERT
-                Assert.AreEqual(excepted, execption.Message);
+                Assert.AreEqual(expected, exception.Message);
+            }
+            catch (Exception ex)
+            {
+                //ASSERT
+                Assert.AreEqual(expected, ex.Message);
             }
 
-
-
         }
-
     }
-
-
 
 }
 
