@@ -9,14 +9,7 @@ using System.Threading.Tasks;
 
 namespace MoodAnalyser058Batch
 {
-
-    /// UC4-is to create object by using reflector and use default constructor
     /// <summary>
-    /// Creating MoodAnalyserFactory class
-    /// </summary>
-    public class MoodAnalyserFactory
-    {
-        /// <summary>
         /// UC4-is to create object by using reflector and use default constructor
         /// </summary>
         /// <param name="className">Name of the class</param>
@@ -58,8 +51,9 @@ namespace MoodAnalyser058Batch
                 {
                     throw new CustomMoodAnalyserException(CustomMoodAnalyserException.ExceptionType.CONSTRUCTOR_NOT_FOUND, "constructor not found");
                 }
-         }
-    }
+        }
+
+
 }
 
 
